@@ -1,0 +1,37 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ counter }}</p>
+    <button v-on:click="sum1(5)">Somar 1</button>
+    <p v-on:mousemove="locateMouseMove">
+        Mouse {{ x }} {{ y }}
+        <!-- Adicionei um evento para parar os eventos quando o mouse estiver em cima do span -->
+        <span v-on:mousemove="stopXY">  PARAR!!!</span>
+    </p>
+
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            counter: 0, 
+            x: 0,
+            y: 0
+        },
+        methods: {
+            sum1(passo) {
+                this.counter += passo
+            },
+            locateMouseMove(event) {
+                this.x = event.clientX
+                this.y = event.clientY
+            },
+            // quando o mouse passa por cima do span, os eventos ocorrendo são parados
+            stopXY(event) {
+                event.stopPropagation()
+            }
+        }
+    })
+
+</script>

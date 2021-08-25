@@ -1,0 +1,39 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ counter }}</p>
+
+    <!-- na chamada do v-on eu posso passar o parametro que eu quiser pra função -->
+    <button v-on:click="sum1(5)">Somar 1</button>
+    <!-- o v-on passa automaticamente o evento referido para a função que ele chama -->
+    <p v-on:mousemove="locateMouseMove">Mouse {{ x }} {{ y }}</p>
+    <!-- o keyup pega quando a tecla enter é pressionada -->
+    <input type="text" v-on:keyup="exibirAlerta">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            counter: 0, 
+            x: 0,
+            y: 0
+        },
+        methods: {
+            // eu recebo os parametros definidos lá em cima no v-on ( sum1(5) )
+            sum1(passo) {
+                this.counter += passo
+            },
+            // passo o evento nos parametros da função, e o V-ON lá em cima, interpreta ele atuomáticament
+            locateMouseMove(event) {
+                this.x = event.clientX
+                this.y = event.clientY
+            },
+            exibirAlerta(event) {
+                alert("Não pressione a tecla!")
+            }
+
+        }
+    })
+
+</script>

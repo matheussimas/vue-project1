@@ -1,0 +1,32 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ counter }}</p>
+
+    <!-- v-on intercepta eventos -->
+    <button v-on:click="sum1">Somar 1</button>
+    <!-- o v-on passa automaticamente o evento referido para a função que ele chama -->
+    <p v-on:mousemove="locateMouseMove">Mouse {{ x }} {{ y }}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            counter: 0, 
+            x: 0,
+            y: 0
+        },
+        methods: {
+            sum1() {
+                this.counter++
+            },
+            // passo o evento nos parametros da função, e o V-ON lá em cima, interpreta ele atuomáticament
+            locateMouseMove(event) {
+                this.x = event.clientX
+                this.y = event.clientY
+            }
+        }
+    })
+
+</script>
