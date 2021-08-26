@@ -1,0 +1,28 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    
+    <p>{{ counter }}</p>
+    <button v-on:click="sum1()">Somar 1</button>
+    <!-- consigo passar algumas expressões dentro do double mutache (interpolação) -->
+    <p>{{ counter > 10 ? 'Maior que 10' : 'Menor que 10' }}</p>
+    </p>
+
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            counter: 0, 
+            x: 0,
+            y: 0
+        },
+        methods: {
+            sum1(passo) {
+                this.counter ++
+            }
+        }
+    })
+
+</script>

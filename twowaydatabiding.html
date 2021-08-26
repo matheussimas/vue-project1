@@ -1,0 +1,22 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ titulo }}</p>
+     <!--  o two data biding permite que o que der entrada no HTML altere as instancias do VUE -->
+    <input type="text" v-bind:value="titulo"
+        v-on:input="titulo = $event.target.value">
+    <!-- pra isso eu preciso adicionar um v-on no html e "mirar" o destino com $event.target.value -->
+
+    <!-- a maneira ideal de se fazer é com o v-model -->
+    <input type="text" v-model="titulo">
+    
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Agora sim porra'
+        }
+    })
+</script>
