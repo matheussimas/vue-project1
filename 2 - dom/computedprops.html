@@ -1,0 +1,46 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <button v-on:click="aumentar">Aumentar</button>
+    <button v-on:click="contador2++">Aumentar</button>
+    <button v-on:click="diminuir">Diminuir</button>
+    <p> Contador: {{ contador }} | {{ contador2 }}</p>
+    <!-- como a função está declarada como uma propriedade computada, não preciso do () -->
+    <p> Resultado: {{ resultado }}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            contador2: 0
+        },
+        computed: {
+            resultado() {
+                // log pra verificar se a função é chamada pelo contador2
+                console.log('chamada')
+                return this.contador > 5 ?
+                     'Maior que 5' : 'Menor que 5'
+             },
+        },
+        methods: {
+            aumentar() {
+                this.contador++
+
+            },
+            diminuir() {
+                this.contador--
+            },
+
+            // se eu deixar o resultado como uma função, o contador 2 vai acabar chamando ela também
+            // a solução é criar ela como uma propriedade computada.
+            // resultado() {
+            //     return this.contador > 5 ?
+            //          'Maior que 5' : 'Menor que 5'
+            //  }
+        },
+    })
+
+    // aula 33
+</script>
