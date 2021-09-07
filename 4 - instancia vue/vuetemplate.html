@@ -1,0 +1,32 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <!-- consigo criar um ref do vue em qualquer elemento da dom -->
+    <h1>{{ aula }} </h1>
+    <h1>{{ modulo }} </h1>
+    <button @click="alterarAula">Aula</button>
+    <button @click="alterarModulo">Modulo</button>
+</div>
+
+<script>
+    const vm = new Vue ({
+        el: "#app",
+        data: {
+            aula: 'Template Vue',
+            repetido: '',
+            modulo: 'Mod instancia Vue'
+        },
+        methods: {
+            alterarAula() {
+                this.aula += "#"
+                
+            },
+            alterarModulo() {
+                this.modulo += "#" 
+            },
+        }
+    })
+    // posso chamar o el assim tbm:
+    // vm.$mount()
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>el data</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        {{ titulo }}
+        <br>
+        <button @click='exclamar'>!!!!!!!</button>
+    </div>
+<script>
+
+    // o $el se refere ao template html da dom
+    // e o $data a todo o data que foi declado dentro do vue
+
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            titulo: "Teste"
+        },
+        methods: {
+            exclamar() {
+                this.titulo += '!!!'
+            }
+        }
+    })
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,43 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <h1> {{ titulo }} </h1>
+    <button @click="titulo += '#'">####</button>
+    <!-- $ vai na frente das variaveis do próprio vue
+        o $destroy destrói a instacia do vue, fazendo com que nenhuma função manipule a dom -->
+    <button @click="$destroy()">Destroy</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'VIDA',
+        },
+        beforeCreate() {
+            console.log('before create')
+        },
+        created() {
+            console.log('created')
+        },
+        beforeMount() {
+            console.log('before mounted')
+        },
+        mounted() {
+            console.log('mounted')
+        },
+        beforeUpdate() {
+            console.log('before update')
+        },
+        updated() {
+            console.log('updated')
+        },
+        beforeDestroy() {
+            console.log('before destroy')
+        },
+        destroyed() {
+            console.log('destroyed')
+        },
+    })
+</script>

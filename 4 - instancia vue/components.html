@@ -1,0 +1,47 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+        
+    <!-- posso chamar o componente do vue criando uma tag html pra ele -->
+    <comp></comp>
+    <comp></comp>
+</div>
+
+<script>
+    // depois passo esse componente como parametro
+    Vue.component('comp', {
+        template: `
+        <div>
+            <h1>{{ aula }} </h1>
+            <h1>{{ modulo }} </h1>
+            <button @click="alterarAula">Aula</button>
+            <button @click="alterarModulo">Modulo</button>
+        </div>
+        
+        `,
+        // colocando o data como function, garanto que cada comp mesmo que duplicado tenha seu próprio contexto
+        // não fazendo alterações globais
+        data: 
+            function () {
+            return {    
+            aula: 'Template Vue',
+            modulo: 'Mod instancia Vue'
+            }
+        },
+        methods: {
+            alterarAula() {
+                this.aula += "#"
+                
+            },
+            alterarModulo() {
+                this.modulo += "#" 
+            },
+        }
+    })
+
+    const vm = new Vue ({
+        el: "#app",
+    })
+    
+</script>
