@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <contador></contador>
+    <contador></contador>
+    <contador></contador>
+</div>
+
+
+<script>
+    // registro global
+    Vue.component('contador', {
+        template: `
+            <div>
+                <span> {{ contador}} </span>
+                <button @click="contador++">+1</button>
+                <button @click="contador--">-1</button>
+            
+            </div>
+        `,
+
+        // para funcionar com o component o data precisa estar como função
+        data() {
+            return {
+                contador: 0,
+            }
+        }
+
+    })
+
+
+    new Vue({
+        el: '#app',
+    })
+</script>
